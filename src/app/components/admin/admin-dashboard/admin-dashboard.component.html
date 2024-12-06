@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <p>Welcome, Admin! Here's an overview of the system.</p>
+    </header>
+
+    <div class="container">
+        <!-- Summary Metrics -->
+        <div class="card">
+            <h3>Total Employees</h3>
+            <p>125</p>
+        </div>
+        <div class="card">
+            <h3>Employees on Leave Today</h3>
+            <p>5</p>
+        </div>
+        <div class="card">
+            <h3>Pending Leave Requests</h3>
+            <p>8</p>
+        </div>
+        <div class="card">
+            <h3>Payrolls Processed This Month</h3>
+            <p>120</p>
+        </div>
+
+        <!-- Charts and Visualizations -->
+        <div class="chart">
+            <h3>Employee Distribution by Department</h3>
+            <canvas id="departmentChart"></canvas>
+        </div>
+        <div class="chart">
+            <h3>Payroll Breakdown</h3>
+            <canvas id="payrollChart"></canvas>
+        </div>
+
+        <!-- Notifications -->
+        <div class="notifications">
+            <h3>Notifications & Reminders</h3>
+            <ul>
+                <li>5 leave requests awaiting your approval.</li>
+                <li>Payroll for November 2024 is ready for processing.</li>
+                <li>TDS filing deadline: 30th November 2024.</li>
+                <li>Upcoming compliance review meeting: 1st December 2024.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 EasyPay Payroll Management System. All rights reserved.</p>
+    </footer>
+
+    <!-- Add Chart.js for rendering charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Employee Distribution by Department Chart
+        const departmentCtx = document.getElementById('departmentChart').getContext('2d');
+        const departmentChart = new Chart(departmentCtx, {
+            type: 'pie',
+            data: {
+                labels: ['HR', 'IT', 'Sales', 'Finance', 'Operations'],
+                datasets: [{
+                    label: 'Employees',
+                    data: [25, 40, 30, 20, 10],
+                    backgroundColor: ['#4CAF50', '#2196F3', '#FFC107', '#FF5722', '#9C27B0']
+                }]
+            }
+        });
+
+        // Payroll Breakdown Chart
+        const payrollCtx = document.getElementById('payrollChart').getContext('2d');
+        const payrollChart = new Chart(payrollCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Basic Salary', 'HRA', 'LTA', 'PF', 'TDS'],
+                datasets: [{
+                    label: 'Amount (₹)',
+                    data: [50000, 15000, 5000, 8000, 2000],
+                    backgroundColor: ['#4CAF50', '#2196F3', '#FFC107', '#FF5722', '#9C27B0']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
